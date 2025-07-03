@@ -1,21 +1,38 @@
-document.getElementById("contacto").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    const payload = Object.fromEntries(new FormData(event.target);
-    const response = await fetch("https://formspree.io/f/xnqzjvjq", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-    });
-    if (response.ok) {
-        alert("¡Mensaje enviado con éxito!");
-        event.target.reset(); // Reset the form
+
+let nombre = document.getElementById('name');
+nombre.addEventListener('input', function() {
+    let nombreValue = nombre.value;
+    if (nombreValue.length < 3) {
+        nombre.setCustomValidity('El nombre debe tener al menos 3 caracteres');
     } else {
-        alert("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.");
-    
+        nombre.setCustomValidity('');
     }
+    nombre.reportValidity();
+}
+);
 
-    });
+let email = document.getElementById('email');
+email.addEventListener('input', function() {
+    let emailValue = email.value;
+    if (!emailValue.includes('@')) {
+        email.setCustomValidity('El correo electrónico debe contener un "@"');
+    } else {
+        email.setCustomValidity('');
+    }
+    email.reportValidity();
+}
+);
 
-       
+document.getElementById('Test').addEventListener('submit', e => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    let score = 0;
+    for (const val of data.values()) score += +val;
+
+    const message = score >= 8 ? "¡Estas al maximo! Aprovecha tu impulso"
+        : score >= 4 ? "¡Vas bien! Un respiro y continua"
+        : "Tomate un momento para cuidarte y retomar fuerzas";
+
+    document.getElementById('resultado').innerText = message;
+});
+

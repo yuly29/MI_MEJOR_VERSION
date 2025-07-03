@@ -8,7 +8,7 @@
      
 </head>
 
-<header>
+<header> 
     <img src="imagenes\logo hoja de otoño.JPG" alt="logo" class="logo">
     <div class="logo"></div>
     <div class="logo-text">AVANZA</div>
@@ -97,10 +97,28 @@
         </form>
 
     </section>
-    <section id="test">
+    <section id="form-test">
         <h2>Test de autoevaluación</h2>
         <p>Realiza nuestro test para evaluar tu bienestar y descubrir áreas de mejora.</p>
-        <button onclick="alert('Test en desarrollo')">Realizar Test</button>
+       
+        
+     <form id="Test">
+        <h3> Como te sientes hoy </h3>
+        <p>1. Energia esta mañana</p>
+        <label><input type="radio" name="t1" value="2"> Alta</label>
+        <label><input type="radio" name="t1" value="1"> Media</label>
+        <label><input type="radio" name="t1" value="0"> Baja</label>
+        <p>2. Motivacion para el dia</p>
+        <label><input type="radio" name="t2" value="2"> Alta</label>
+        <label><input type="radio" name="t2" value="1"> Media</label>
+        <label><input type="radio" name="t2" value="0"> Baja</label>
+
+        <button type="submit"> Ver Resultado</button>
+
+
+    </form>
+    <div id="resultado"></div>
+
     </section>
 
     <section id="blog">
@@ -117,8 +135,11 @@
         <p>Tu bienestar importa. Cada paso cuenta</p>
 
         <div class="social">
-            <a href="https://www.facebook.com/"><img src="imagenes/facebook.png" alt="Facebook" ></a>
-            <a href="https://www.instagram.com/"><img src="IMAGENES/instagram.png" alt="Instagram"></a>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <a href="https://www.facebook.com/?locale=es_LA" class="fa fa-facebook"></a>
+        <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+    
                         
         </div>
     
@@ -131,7 +152,7 @@
             <form >
 
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name">
                 
                 <label for="email">Correo electrónico:</label>
                 <input type="email" id="email" name="email" required>
